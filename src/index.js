@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const Emoji = require("./Emoji.js");
 const resolver = require("./resolver.js");
+const util = require("./util.js");
 
 module.exports = {
     urls: {
