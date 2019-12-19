@@ -3,7 +3,7 @@ module.exports = {
     search: (str, categories) => {
         for (const id of Object.keys(categories)) {
             const name = categories[id];
-            if (str.replace(/ +/g, "_").replace(/\W/g, "_") === name.replace(/ +/g, "_").replace(/\W/g, "_")) return Number(id);
+            if (str.replace(/ +/g, "_").replace(/\W/g, "_").toLowerCase() === name.replace(/ +/g, "_").replace(/\W/g, "_").toLowerCase()) return Number(id);
         }
         return void console.warn("Invalid category name " + str);
     }
