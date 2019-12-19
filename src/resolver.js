@@ -22,16 +22,19 @@ const categories = {
 
 module.exports = {
     resolveCategory: obj => {
-        if (obj instanceof Number && !isNaN(Number(obj))) {
-            const num = Number(obj);
-            if (num >= 1 && num <= 18) return num;
-            return void console.warn("Invalid category number " + num);
-        }
-        if (obj instanceof String) {
-            const str = obj.trim().toLowerCase();
-            const found = util.search(str, categories);
-            if (found) return 
-        }
+        const constName = obj.constructor ? obj.constructor.name : null;
+        switch (constName) { 
+            case "Number":
+                const num = Number(obj);
+                if (num >= 1 && num <= 18) return num;
+                return void console.warn("Invalid category number " + num);
+            case "String":
+                const found = util.search(obj, categories);
+                if (found) return found;
+                return void console.warn("Invalid category name " + obj);
+            case "Array": return this.resolveCategories(obj);
+            default: return void console.warn("Invalid category type " + constName);
+        
     },
     resolveCategories: obj => Array.from(new Set((obj === "all" ? Object.values(categories) : obj instanceof Array ? obj : [obj]).map(resolveCategory)));
 };
