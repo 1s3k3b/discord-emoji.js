@@ -6,9 +6,9 @@ module.exports = {
         allEmojis: "https://discordemoji.com/api/"
     },
     getSiteData: () => fetch(this.urls.stats).then(d => d.json()),
-    getEmojis: async (category = "all", map = "none") => {
+    getEmojis: async (category = "all", map) => {
         category = resolver.resolveCategories(category);
-        map = resolver.resolveMapType(map);
-        return fetch(this.urls.allEmojis).then(async x => (await x.json()).filter(y => category.some(z => y.category === z)).map(r => map === "none" ? r : (r[map] || r));
+        map = map ? String(map).toLowerCase().trim() : undefined;
+        return fetch(this.urls.allEmojis).then(async x => (await x.json()).filter(y => category.some(z => y.category === z)).map(r => !map ? r : (r[map] || r));
     }
 };
