@@ -1,4 +1,4 @@
-<div align="center"><a href="https://nodei.co/npm/discord-emoji.js/"><img src="https://nodei.co/npm/discord-emoji.js.png?downloads=true&stars=true"></a></div>
+<div align="center"><a href="https://nodei.co/npm/discord-emoji.js/"><img src="https://nodei.co/npm/discord-emoji.js.png?downloads=true&stars=true"></a><p><a href="https://discordemoji.com/">DiscordEmoji</a></p></div>
 
 # Installation
 npm: `npm i discord-emoji.js`
