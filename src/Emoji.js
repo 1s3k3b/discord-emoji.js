@@ -2,6 +2,9 @@ const util = require("./util.js");
 
 module.exports = class Emoji {
     constructor(data) {
+        if (!data) return;
+        if (!data.title) return;
+        
         this.id = data.id;
         this.name = data.title;
         this.slug = data.slug;
