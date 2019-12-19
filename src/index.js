@@ -10,7 +10,7 @@ module.exports = {
     getEmojis: async (category = "all", map) => {
         category = resolver.resolveCategories(category);
         map = map ? String(map).toLowerCase().trim() : undefined;
-        return (await (await fetch(this.urls.allEmojis).then(async x => (await x.json()).filter(y => category.some(z => y.category === z)).map(r => !map ? r : (r[map] || r)))));
+        return (await (await fetch(module.exports.urls.allEmojis).then(async x => (await x.json()).filter(y => category.some(z => y.category === z)).map(r => !map ? r : (r[map] || r)))));
     },
-    findEmoji: async name => (await this.getEmojis("all", "title")).find(x => util.findStr(name, x))
+    findEmoji: async name => (await module.exports.getEmojis()).find(x => util.findStr(name, x.name))
 };
