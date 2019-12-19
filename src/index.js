@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const resolver = require("./resolver.js");
 
 module.exports = {
     urls: {
