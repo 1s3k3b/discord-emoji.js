@@ -6,7 +6,9 @@
     "main": "./src/index.js",
     "homepage": "https://1s3k3b.github.io/discord/emoji/index.html",
     "scripts": {
-        
+        "getEmojis": "node ./test/getEmojis.js",
+        "getSiteData": "node ./test/getSiteData.js",
+        "findGetEmoji": "node ./test/findGetEmoji.js"
     },
     "files": [
         "src"
