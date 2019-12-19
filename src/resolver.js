@@ -22,6 +22,7 @@ const categories = {
 
 module.exports = {
     resolveCategory: obj => {
+        obj = isNaN(Number(obj)) ? obj : Number(obj);
         const constName = obj.constructor ? obj.constructor.name : null;
         switch (constName) { 
             case "Number":
@@ -34,7 +35,7 @@ module.exports = {
                 return void console.warn("Invalid category name " + obj);
             case "Array": return this.resolveCategories(obj);
             default: return void console.warn("Invalid category type " + constName);
-        
+        }
     },
     resolveCategories: obj => Array.from(new Set((obj === "all" ? Object.values(categories) : obj instanceof Array ? obj : [obj]).map(resolveCategory)));
 };
