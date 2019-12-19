@@ -37,5 +37,5 @@ module.exports = {
             default: return void console.warn("Invalid category type " + constName);
         }
     },
-    resolveCategories: obj => Array.from(new Set((obj === "all" ? Object.values(categories) : obj instanceof Array ? obj : [obj]).map(this.resolveCategory)))
+    resolveCategories: obj => Array.from(new Set((obj === "all" ? Object.values(categories) : obj instanceof Array ? obj : [obj]).map(module.exports.resolveCategory)))
 };
