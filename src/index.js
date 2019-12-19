@@ -7,7 +7,7 @@ module.exports = {
     },
     getSiteData: () => fetch(this.urls.stats).then(d => d.json()),
     getEmojis: async (category = "all", map = "none") => {
-        category = resolver.resolveCategory(category);
+        category = resolver.resolveCategories(category);
         map = resolver.resolveMapType(map);
         return fetch(this.urls.allEmojis).then(async x => (await x.json()).filter(y => category.some(z => y.category === z)).map(r => map === "none" ? r : (r[map] || r));
     }
