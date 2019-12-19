@@ -1,3 +1,4 @@
+const util = require("./util.js");
 const categories = {
     "1": "Original Style",
     "2": "TV / Movie",
@@ -21,9 +22,16 @@ const categories = {
 
 module.exports = {
     resolveCategory: obj => {
-
-        
-        const arr = obj instanceof Array ? obj : [obj];
+        if (obj instanceof Number && !isNaN(Number(obj))) {
+            const num = Number(obj);
+            if (num >= 1 && num <= 18) return num;
+            return void console.warn("Invalid category number " + num);
+        }
+        if (obj instanceof String) {
+            const str = obj.trim().toLowerCase();
+            const found = util.search(str, categories);
+            if (found) return 
+        }
     },
-    resolveCategories: obj => (obj === "all" ? Object.values(categories) : obj instanceof Array ? obj : [obj]).map(resolveCategory);
+    resolveCategories: obj => Array.from(new Set((obj === "all" ? Object.values(categories) : obj instanceof Array ? obj : [obj]).map(resolveCategory)));
 };
