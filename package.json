@@ -1,0 +1,32 @@
+{
+    "name": "discord-emoji.js",
+    "author": "1s3k3b",
+    "version": "1.0.0",
+    "description": "An API wrapper for DiscordEmoji",
+    "main": "./src/index.js",
+    "homepage": "https://1s3k3b.github.io/discord/emoji/index.html",
+    "scripts": {
+        
+    },
+    "files": [
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/1s3k3b/discord-emoji.js.git"
+    },
+    "keywords": [
+        "discord",
+        "emoji",
+        "emote",
+        "emojis",
+        "emotes",
+        "api"
+    ],
+    "bugs": {
+        "url": "https://github.com/1s3k3b/discord-emoji.js/issues"
+    },
+    "dependencies": {
+        "node-fetch": "^2.6.0"
+    }
+}
