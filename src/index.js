@@ -18,6 +18,6 @@ module.exports = {
         return (await (await fetch(module.exports.urls.allEmojis).then(async x => (await x.json()).filter(y => category.some(z => y.category === z)).map(r => !map ? r : (r[map] || r))))).map(x => new Emoji(x));
     },
     findEmoji: async name => (await module.exports.getEmojis()).find(x => util.findStr(name, x.name)),
-    getEmoji: async id => (await module.exports.getEmojis()).find(x => x.id === Number(String(id).replace(/\W/g, ""))),
+    getEmoji: async id => (await module.exports.getEmojis()).find(x => x.id == id),
     getAuthorEmojis: async name => (await module.exports.getEmojis()).filter(x => util.findStr(name, x.author))
 };
